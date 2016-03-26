@@ -28,6 +28,7 @@
             <string>dllinit(0,true,false)
 servertcp = tcplisten(global.server_port, global.max_players, 1)
 global.players = 0;
+randomize() //Come up with a new RNG seed
 </string>
           </argument>
         </arguments>

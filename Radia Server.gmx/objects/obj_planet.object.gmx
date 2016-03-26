@@ -25,11 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var northx, northy, northz
-northx = 0
+            <string>northx = 0
 northy = 0
 northz = 0
-
+altitude = 0
+azimuth = 0
+magnitude = 0
 </string>
           </argument>
         </arguments>
