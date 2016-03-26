@@ -24,7 +24,9 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_button</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -107,6 +109,9 @@
     <object>objects\obj_server</object>
     <object>objects\obj_planet</object>
     <object>objects\obj_player</object>
+    <object>objects\obj_cfgbutton</object>
+    <object>objects\obj_cfgstring</object>
+    <object>objects\obj_cfgint</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Configure</room>
