@@ -33,7 +33,6 @@ dy=0
 dz=0
 d3d_start()
 d3d_set_lighting(true)
-d3d_light_define_ambient(c_white)
 d3d_light_enable(0,true)
 </string>
           </argument>
@@ -59,26 +58,21 @@ d3d_light_enable(0,true)
             <kind>1</kind>
             <string>if(keyboard_check(ord('W')))
 {
-    x = x + (dx/512)
-    y = y + (dy/512)
-    z = z + (dz/512)
+    x = x + dx
+    y = y + dy
+    z = z + dz
 }
 if(keyboard_check(ord('S')))
 {
-    x = x + (dx/512)
-    y = y + (dy/512)
-    z = z + (dz/512)
+    x = x - dx
+    y = y - dy
+    z = z - dz
 }
 if(display_get_width()/2 != display_mouse_get_x())
 {
-    yaw += (display_mouse_get_x() - display_get_width()/2) / display_get_width()
-    while(yaw &gt;= pi)
-        yaw -= pi*2
-    while(yaw &lt; -pi)
-        yaw += pi*2
-    dx = cos(pitch)*cos(yaw)
-    dy = cos(pitch)*sin(yaw)
-    show_debug_message(string(yaw))
+    direction += radtodeg((display_mouse_get_x() - display_get_width()/2) / display_get_width())
+    dx = cos(pitch)*cos(degtorad(direction))
+    dy = cos(pitch)*sin(degtorad(direction))
 }
 if(display_get_height()/2 != display_mouse_get_y())
 {
@@ -87,10 +81,9 @@ if(display_get_height()/2 != display_mouse_get_y())
         pitch = pi/2
     if(pitch &lt; -pi/2)
         pitch = -pi/2
-    dx = cos(pitch)*cos(yaw)
-    dy = cos(pitch)*sin(yaw)
+    dx = cos(pitch)*cos(degtorad(direction))
+    dy = cos(pitch)*sin(degtorad(direction))
     dz = sin(pitch)
-    show_debug_message(string(pitch))
 }
 display_mouse_set(display_get_width()/2,display_get_height()/2)
 </string>
@@ -115,9 +108,11 @@ display_mouse_set(display_get_width()/2,display_get_height()/2)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>d3d_light_define_point(0,x,y,z,99999,c_white)
+            <string>d3d_light_define_point(0,x,y,z,9999999,c_white)
 
-d3d_set_projection(x,y,z,dx,dy,dz,0,0,1)
+d3d_set_projection(x,y,z,x+dx*100,y+dy*100,z+dz*100,0,0,1)
+show_debug_message("d " + string(dx) + " " + string(dy) + " " + string(dz))
+show_debug_message("p " + string(x) + " " + string(y) + " " + string(z) + " " + string(direction) + " " + string(pitch))
 </string>
           </argument>
         </arguments>
