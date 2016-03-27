@@ -57,11 +57,30 @@ r = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>r += momentum
+            <string>/*with(obj_planet) {
+    if(other.id != id) {
+        magnitude2 = (other.x-x)^2+(other.y-y)^2+(other.z-z)^2  //
+        if(magnitude2 &lt;= 1)
+        {
+            other.hspeed *= -1
+            other.vspeed *= -1
+            other.zspeed *= -1
+            other.hspeed += random(5.0) - 2.5
+            other.vspeed += random(5.0) - 2.5
+            other.zspeed += random(5.0) - 2.5
+        } else {
+            other.hspeed -= (other.x - x) / magnitude2 / 64
+            other.vspeed -= (other.y - y) / magnitude2 / 64
+            other.zspeed -= (other.z - z) / magnitude2 / 64
+        }
+    }
+}*/
+r += momentum
 while r &gt; pi
     r -= 2*pi
 while r &lt; -pi
     r += 2*pi
+z += zspeed
 </string>
           </argument>
         </arguments>

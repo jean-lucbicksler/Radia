@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,11 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>z=0
-yaw=0
 pitch=0
 dx=1
 dy=0
 dz=0
+waluigiTime=0
 d3d_start()
 d3d_set_lighting(true)
 d3d_light_enable(0,true)
@@ -86,12 +86,44 @@ if(display_get_height()/2 != display_mouse_get_y())
     dz = sin(pitch)
 }
 display_mouse_set(display_get_width()/2,display_get_height()/2)
+
+waluigiTime++
+if(waluigiTime &gt;= 32)
+    waluigiTime = 0
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="72">
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>d3d_set_lighting(false)
+texture_set_interpolation(false)
+d3d_set_hidden(false)
+d3d_set_projection(0,0,0,dx,dy,dz,0,0,1)
+d3d_draw_ellipsoid(-2048,-2048,-2048,2048,2048,2048,sprite_get_texture(spr_background, floor(waluigiTime/4.0)),4,4,32)
+texture_set_interpolation(true)
+d3d_set_hidden(true)
+d3d_set_lighting(true)
+</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -109,7 +141,7 @@ display_mouse_set(display_get_width()/2,display_get_height()/2)
           <argument>
             <kind>1</kind>
             <string>d3d_light_define_point(0,x,y,z,9999999,c_white)
-
+d3d_set_lighting(true)
 d3d_set_projection(x,y,z,x+dx*100,y+dy*100,z+dz*100,0,0,1)
 show_debug_message("d " + string(dx) + " " + string(dy) + " " + string(dz))
 show_debug_message("p " + string(x) + " " + string(y) + " " + string(z) + " " + string(direction) + " " + string(pitch))

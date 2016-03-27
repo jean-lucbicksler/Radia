@@ -30,12 +30,13 @@ servertcp = tcplisten(global.server_port, global.max_players, 1)
 global.players = 0;
 randomize() //Come up with a new RNG seed
 globalvar planet, renderer;
-global.planet = spawnPlanet()
+global.planet[0] = spawnPlanet().id
+global.planet[1] = spawnPlanet().id
 
 if(SPECTATE_CAMERA)
 {
     show_debug_message("speccam created")
-    global.renderer = instance_create(0,0, obj_speccam)
+    global.renderer = instance_create(0,0, obj_speccam).id
 }
 </string>
           </argument>
@@ -62,15 +63,6 @@ if(SPECTATE_CAMERA)
             <string>stcp = tcpaccept(servertcp, true)
 if(stcp)
 {
-}
-if(SPECTATE_CAMERA)
-{
-    if(keyboard_check_pressed(ord('R')))
-    {
-        global.renderer.x = global.planet.x
-        global.renderer.y = global.planet.y
-        global.renderer.z = global.planet.z
-    }
 }
 </string>
           </argument>

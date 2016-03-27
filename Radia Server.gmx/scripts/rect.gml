@@ -1,5 +1,5 @@
-azimuth=argument0; altitude=argument1; magnitude = argument2
-storage[0] = cos(azimuth)*cos(altitude)*magnitude
-storage[1] = sin(azimuth)*cos(altitude)*magnitude
-storage[2] = sin(altitude)*magnitude
+azim=argument0; alti=argument1; magni = argument2
+storage[0] = cos(azim)*cos(alti)*magni
+storage[1] = sin(azim)*cos(alti)*magni
+storage[2] = sin(alti)*magni
 return storage

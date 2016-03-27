@@ -50,6 +50,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_background</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -137,6 +138,9 @@
       <script>scripts\spawnPlanet.gml</script>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\starColors.shader</shader>
+  </shaders>
   <objects name="objects">
     <object>objects\obj_configure</object>
     <object>objects\obj_server</object>
@@ -151,8 +155,10 @@
     <room>rooms\Configure</room>
     <room>rooms\Server</room>
   </rooms>
-  <constants number="1">
+  <constants number="3">
     <constant name="SPECTATE_CAMERA">1</constant>
+    <constant name="FOCUS_COUNT">12</constant>
+    <constant name="STARS_PER_FOCUS">12</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

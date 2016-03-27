@@ -1,5 +1,5 @@
 xx = argument0; yy = argument1; zz = argument2
-storage[2] = sqrt(xx*xx+yy*yy+zz*zz)
-storage[0] = arctan2(yy,xx)
-storage[1] = arcsin(zz/storage[2])
-return storage
+polstor[2] = sqrt(xx*xx+yy*yy+zz*zz)
+polstor[0] = arctan2(yy,xx)
+polstor[1] = arcsin(zz/polstor[2])
+return polstor
