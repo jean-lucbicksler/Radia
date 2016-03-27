@@ -4,7 +4,7 @@
     <Config>Configs\Default</Config>
     <Config>Configs\AdministrativeDebug</Config>
   </Configs>
-  <datafiles number="2" name="datafiles">
+  <datafiles number="3" name="datafiles">
     <datafile>
       <name>39dll.dll</name>
       <exists>-1</exists>

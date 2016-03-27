@@ -12,5 +12,5 @@ pos = rect(azimalt[0],azimalt[1],random(100.0))
 planet.x = pos[0]
 planet.y = pos[1]
 planet.z = pos[2]
-planet.momentum = random(2.0) - 1.0
+planet.momentum = (random(2.0) - 1.0)
 return planet
