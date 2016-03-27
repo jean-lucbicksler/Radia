@@ -173,7 +173,11 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_button</sprite>
+    <sprite>sprites\spr_change</sprite>
+    <sprite>sprites\spr_start</sprite>
+    <sprite>sprites\spr_controls</sprite>
+    <sprite>sprites\spr_gameplay</sprite>
+    <sprite>sprites\spr_back</sprite>
     <sprite>sprites\spr_background</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -261,23 +265,37 @@
     <scripts name="SpawnCodes">
       <script>scripts\spawnPlanet.gml</script>
     </scripts>
+    <scripts name="Controls">
+      <script>scripts\keyToString.gml</script>
+      <script>scripts\mbtnToString.gml</script>
+      <script>scripts\ctrlToString.gml</script>
+      <script>scripts\checkCtrl.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\starColors.shader</shader>
   </shaders>
   <objects name="objects">
-    <object>objects\obj_configure</object>
+    <object>objects\obj_serversettings</object>
+    <object>objects\obj_controlssettings</object>
     <object>objects\obj_server</object>
     <object>objects\obj_planet</object>
     <object>objects\obj_player</object>
     <object>objects\obj_cfgbutton</object>
+    <object>objects\obj_cfgctrl</object>
+    <object>objects\obj_start</object>
+    <object>objects\obj_controls</object>
+    <object>objects\obj_back</object>
+    <object>objects\obj_gameplay</object>
     <object>objects\obj_cfgstring</object>
     <object>objects\obj_cfgint</object>
     <object>objects\obj_speccam</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Configure</room>
-    <room>rooms\Server</room>
+    <room>rooms\rm_Server_Settings</room>
+    <room>rooms\rm_Server</room>
+    <room>rooms\rm_Controls</room>
+    <room>rooms\rm_Gameplay_Settings</room>
   </rooms>
   <constants number="3">
     <constant name="SPECTATE_CAMERA">1</constant>

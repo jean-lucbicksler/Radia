@@ -27,6 +27,42 @@
             <kind>1</kind>
             <string>name = ""
 value = ""
+timer = get_timer()-1000000
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>timer = get_timer();
+if(get_timer() - timer &lt; 1000000)
+{
+    if(keyboard_key != vk_nokey)
+        value = keyboard_key;
+    else if(mouse_button != mb_none)
+        switch(mouse_button)
+        {
+            case mb_left: value = -696900;break;
+            case mb_right: value = -696901;break;
+            case mb_middle: value = -696902;break;
+        };
+}
 </string>
           </argument>
         </arguments>
@@ -53,7 +89,7 @@ value = ""
 draw_set_color(c_white) //Sets pen color
 draw_set_halign(fa_left) //horizontal alignments: fa_(left,center,right)
 draw_set_valign(fa_middle) //vertical alignments: fa_(top,middle,bottom)
-draw_text(x+5,y,name + ": " + string(value))
+draw_text(x+5,y,name + ": " + ctrlToString(value))
 </string>
           </argument>
         </arguments>

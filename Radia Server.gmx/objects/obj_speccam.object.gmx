@@ -27,9 +27,11 @@
             <kind>1</kind>
             <string>z=0
 pitch=0
-dx=1
+dx=1 //Unit Forward Vector
 dy=0
 dz=0
+rx=0 //Unit Right Vector
+ry=-1
 waluigiTime=0
 d3d_start()
 d3d_set_lighting(true)
@@ -56,33 +58,48 @@ d3d_light_enable(0,true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(keyboard_check(ord('W')))
+            <string>if(checkCtrl(global.key_fwd))
 {
-    x = x + dx
-    y = y + dy
-    z = z + dz
+    x += dx
+    y += dy
+    z += dz
 }
-if(keyboard_check(ord('S')))
+if(checkCtrl(global.key_bck))
 {
-    x = x - dx
-    y = y - dy
-    z = z - dz
+    x -= dx
+    y -= dy
+    z -= dz
+}
+if(checkCtrl(global.key_lft))
+{
+    x -= rx
+    y -= ry
+}
+if(checkCtrl(global.key_rgt))
+{
+    x += rx
+    y += ry
 }
 if(display_get_width()/2 != display_mouse_get_x())
 {
-    direction += radtodeg((display_mouse_get_x() - display_get_width()/2) / display_get_width())
-    dx = cos(pitch)*cos(degtorad(direction))
-    dy = cos(pitch)*sin(degtorad(direction))
+    direction -= radtodeg((display_mouse_get_x() - display_get_width()/2) / display_get_width()) / sens * 1000
+    rx = cos(degtorad(90-direction))
+    ry = sin(degtorad(90-direction))
+    dz = cos(pitch)
+    dx = dz*cos(degtorad(-direction))
+    dy = dz*sin(degtorad(-direction))
+    dz = sin(pitch)
 }
 if(display_get_height()/2 != display_mouse_get_y())
 {
-    pitch += (display_get_height()/2 - display_mouse_get_y()) / display_get_height()
+    pitch += (display_get_height()/2 - display_mouse_get_y()) / display_get_height() / sens * 1000
     if(pitch &gt; pi/2)
         pitch = pi/2
     if(pitch &lt; -pi/2)
         pitch = -pi/2
-    dx = cos(pitch)*cos(degtorad(direction))
-    dy = cos(pitch)*sin(degtorad(direction))
+    dz = cos(pitch)
+    dx = dz*cos(degtorad(-direction))
+    dy = dz*sin(degtorad(-direction))
     dz = sin(pitch)
 }
 display_mouse_set(display_get_width()/2,display_get_height()/2)
