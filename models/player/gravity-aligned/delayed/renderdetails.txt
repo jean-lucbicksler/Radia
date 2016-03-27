@@ -1,0 +1,3 @@
+render through each side plate disc, delay their yaw .5 seconds with a maximum yaw delay of 45 degrees
+
+delay their vertical position by .5 seconds with a maximum delay of one-sixteenth the height of the central axis itself

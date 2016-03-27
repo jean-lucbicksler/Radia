@@ -4,7 +4,7 @@
     <Config>Configs\Default</Config>
     <Config>Configs\AdministrativeDebug</Config>
   </Configs>
-  <datafiles number="3" name="datafiles">
+  <datafiles number="10" name="datafiles">
     <datafile>
       <name>39dll.dll</name>
       <exists>-1</exists>
@@ -45,6 +45,130 @@
       </ConfigOptions>
       <filename>servercfg.ini</filename>
     </datafile>
+    <datafiles number="10" name="models">
+      <datafiles number="10" name="player">
+        <datafile>
+          <name>Cannon Primary.d3d</name>
+          <exists>-1</exists>
+          <size>1012370</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+            <Config name="AdministrativeDebug">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Cannon Primary.d3d</filename>
+        </datafile>
+        <datafile>
+          <name>Cannon Secondary.d3d</name>
+          <exists>-1</exists>
+          <size>199350</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+            <Config name="AdministrativeDebug">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Cannon Secondary.d3d</filename>
+        </datafile>
+        <datafile>
+          <name>Central Axis.d3d</name>
+          <exists>-1</exists>
+          <size>191166</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+            <Config name="AdministrativeDebug">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Central Axis.d3d</filename>
+        </datafile>
+        <datafile>
+          <name>Side Plates.d3d</name>
+          <exists>-1</exists>
+          <size>181569</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+            <Config name="AdministrativeDebug">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Side Plates.d3d</filename>
+        </datafile>
+        <datafile>
+          <name>Rail.d3d</name>
+          <exists>-1</exists>
+          <size>2873</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+            <Config name="AdministrativeDebug">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Rail.d3d</filename>
+        </datafile>
+        <datafile>
+          <name>Skid.d3d</name>
+          <exists>-1</exists>
+          <size>161302</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+            <Config name="AdministrativeDebug">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>Skid.d3d</filename>
+        </datafile>
+      </datafiles>
+    </datafiles>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
