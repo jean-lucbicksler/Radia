@@ -27,10 +27,6 @@
             <kind>1</kind>
             <string>z=0
 pitch=0
-/**
-// Radial Camera Switch 3/4
-yaw=0
-/**/ // ON
 dx=1 //Unit Forward Vector
 dy=0
 dz=0
@@ -85,9 +81,7 @@ if(checkCtrl(global.key_rgt))
     y += ry
 }
 if(display_get_width()/2 != display_mouse_get_x())
-{   
-/**/
-//Radial Camera Switch 4/4
+{
     direction -= radtodeg((display_mouse_get_x() - display_get_width()/2) / display_get_width()) / sens * 1000
     rx = cos(degtorad(90-direction))
     ry = sin(degtorad(90-direction))
@@ -98,38 +92,16 @@ if(display_get_width()/2 != display_mouse_get_x())
 }
 if(display_get_height()/2 != display_mouse_get_y())
 {
-    var dpitch = (display_get_height()/2 - display_mouse_get_y()) / display_get_height() / sens * 1000
-    if(pitch + dpitch &lt; pi/2 &amp;&amp; pitch + dpitch &gt; -pi/2)
-    {
-        pitch += dpitch
-        dz = cos(pitch)
-        dx = dz*cos(degtorad(-direction))
-        dy = dz*sin(degtorad(-direction))
-        dz = sin(pitch)
-    }
-}
-/*/ // OFF
-    yaw -= radtodeg((display_mouse_get_x() - display_get_width()/2) / display_get_width()) / sens * 1000
-    rx = cos(degtorad(90-direction))
-    ry = sin(degtorad(90-direction))
+    pitch += (display_get_height()/2 - display_mouse_get_y()) / display_get_height() / sens * 1000
+    if(pitch &gt; pi/2)
+        pitch = pi/2
+    if(pitch &lt; -pi/2)
+        pitch = -pi/2
     dz = cos(pitch)
     dx = dz*cos(degtorad(-direction))
     dy = dz*sin(degtorad(-direction))
     dz = sin(pitch)
 }
-if(display_get_height()/2 != display_mouse_get_y())
-{
-    var dpitch = (display_get_height()/2 - display_mouse_get_y()) / display_get_height() / sens * 1000
-    if(pitch + dpitch &lt; pi/2 &amp;&amp; pitch + dpitch &gt; -pi/2)
-    {
-        pitch += dpitch
-        dz = cos(pitch)
-        dx = dz*cos(degtorad(-direction))
-        dy = dz*sin(degtorad(-direction))
-        dz = sin(pitch)
-    }
-}
-/**/ // ON
 display_mouse_set(display_get_width()/2,display_get_height()/2)
 
 waluigiTime++
@@ -160,12 +132,7 @@ if(waluigiTime &gt;= 32)
             <string>d3d_set_lighting(false)
 texture_set_interpolation(false)
 d3d_set_hidden(false)
-/**/
-//Radial Camera Switch 2/4
 d3d_set_projection(0,0,0,dx,dy,dz,0,0,1)
-/*/ // OFF
-d3d_set_projection(0,0,0,dx,dy,dz,0,0,1)
-/**/ // ON
 d3d_draw_ellipsoid(-2048,-2048,-2048,2048,2048,2048,sprite_get_texture(spr_background, floor(waluigiTime/4.0)),4,4,32)
 texture_set_interpolation(true)
 d3d_set_hidden(true)
@@ -192,12 +159,7 @@ d3d_set_lighting(true)
             <kind>1</kind>
             <string>d3d_light_define_point(0,x,y,z,9999999,c_white)
 d3d_set_lighting(true)
-/**/
-//Radial Camera Switch 1/4
 d3d_set_projection(x,y,z,x+dx*100,y+dy*100,z+dz*100,0,0,1)
-/*/ // OFF
-d3d_set_projection(x,y,z,x+dx*100,y+dy*100,z+dz*100,0,0,1)
-/**/ // ON
 </string>
           </argument>
         </arguments>
