@@ -112,7 +112,7 @@ z += zspeed
         for(var j=0; j &lt; array_length_2d(terrain,i)-2; j+=2) //improper collision checking on the last two indices and cannot cull arrays in gml.  They're garbage.
         {
             d3d_transform_set_translation(-x, -y, -z)
-            d3d_transform_add_translation(0, 0, i*11/2/pi)
+            d3d_transform_add_translation(0, 0, i*11/2/pi+0.5)
             d3d_transform_add_rotation_y(radtodeg(pi/2-terrain[i,j+1]))
             d3d_transform_add_rotation_z(radtodeg(terrain[i,j] + r))
             d3d_transform_add_rotation_y(radtodeg(pi/2-altitude))
