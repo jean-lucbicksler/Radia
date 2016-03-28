@@ -3,7 +3,7 @@ planet = instance_create(0,0,obj_planet)
 azimalt = rand_pol();
 planet.azimuth = azimalt[0]
 planet.altitude = azimalt[1]
-planet.magnitude = 60 + random(60)
+planet.magnitude = 10 + random(10)
 pos = rect(azimalt[0],azimalt[1],planet.magnitude)
 planet.northx = pos[0]
 planet.northy = pos[1]
@@ -16,8 +16,7 @@ planet.z = pos[2]
 planet.momentum = (random(0.0825) - .003125)
 for(var i = 11; (i/2/pi) < planet.magnitude; i += 11)
 {
-    var l = 20 // fuckup counter
-    for(var j = 0; j < i && l > 0; j++)
+    for(var j = 0; j < i; j++)
     {
         azimalt = rand_pol();
         pos = rect(azimalt[0],azimalt[1],i/2/pi+0.5);
@@ -28,11 +27,10 @@ for(var i = 11; (i/2/pi) < planet.magnitude; i += 11)
         planet.terrain[i/11,2*j+1] = azimalt[1];
         for(var k = 0; k < j; k++)
         {
-            var dist2 = (genArray[j,0]-genArray[k,0])^2+(genArray[j,1]-genArray[k,1])^2+(genArray[j,2]-genArray[k,2])^2
+            var dist2 = power(genArray[j,0]-genArray[k,0],2)+power(genArray[j,1]-genArray[k,1],2)+power(genArray[j,2]-genArray[k,2],2)
             if (dist2 < 3)
             {
                 j--;
-                l--;
                 break;
             }
         }

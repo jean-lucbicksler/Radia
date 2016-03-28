@@ -91,13 +91,6 @@ global.planet[0].terrain[6,2] = pi/2;
 global.planet[0].terrain[6,3] = 0;
 /**/// End Test Case
 
-if(GAME_MODE == 0)
-{
-    global.planet[0].x = 0
-    global.planet[0].y = 0
-    global.planet[0].z = 0
-}
-
 if(SPECTATE_CAMERA)
 {
     show_debug_message("speccam created")
