@@ -35,6 +35,7 @@ z = 0
 momentum = 0
 zspeed = 0
 r = 0
+terrain[0,0] = 0
 </string>
           </argument>
         </arguments>
@@ -106,13 +107,21 @@ z += zspeed
             <string>if(SPECTATE_CAMERA)
 {
     draw_set_color(c_white)
-    d3d_transform_set_translation(-x,-y,-z)  //move the model to the origin
-    d3d_transform_add_rotation_z(radtodeg(r+azimuth)) //rotate it about the z axis
-    d3d_transform_add_rotation_axis(cos(azimuth+pi/2),sin(azimuth+pi/2),0,radtodeg(pi/2-altitude)) //rotate it about this axis
-    d3d_transform_add_translation(x,y,z) //move the model where it belongs
-    d3d_draw_block(x-1,y-1,z-1,x+1,y+1,z+1,-1,1,1) //under that transform of a model, draw a box
-    d3d_transform_set_identity() //okay, lose the transform definition
-    show_debug_message(string(x) + " " + string(y) + " " + string(z))
+    for(var i=1; i &lt; array_height_2d(terrain); i++)
+    {
+        for(var j=0; j &lt; array_length_2d(terrain,i)-2; j+=2) //improper collision checking on the last two indices and cannot cull arrays in gml.  They're garbage.
+        {
+            d3d_transform_set_translation(-x, -y, -z)
+            d3d_transform_add_translation(0, 0, i*11/2/pi)
+            d3d_transform_add_rotation_y(radtodeg(pi/2-terrain[i,j+1]))
+            d3d_transform_add_rotation_z(radtodeg(terrain[i,j] + r))
+            d3d_transform_add_rotation_y(radtodeg(pi/2-altitude))
+            d3d_transform_add_rotation_z(radtodeg(azimuth))
+            d3d_transform_add_translation(x,y,z)
+            d3d_draw_block(x-0.5,y-0.5,z-0.5, x+0.5,y+0.5,z+0.5, -1,1,1)
+            d3d_transform_set_identity()
+        }
+    }
 }
 </string>
           </argument>

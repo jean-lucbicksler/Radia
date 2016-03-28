@@ -297,10 +297,11 @@
     <room>rooms\rm_Controls</room>
     <room>rooms\rm_Gameplay_Settings</room>
   </rooms>
-  <constants number="3">
+  <constants number="4">
     <constant name="SPECTATE_CAMERA">1</constant>
     <constant name="FOCUS_COUNT">12</constant>
     <constant name="STARS_PER_FOCUS">12</constant>
+    <constant name="GAME_MODE">0</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

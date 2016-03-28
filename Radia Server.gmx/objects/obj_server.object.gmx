@@ -30,8 +30,14 @@ servertcp = tcplisten(global.server_port, global.max_players, 1)
 global.players = 0;
 randomize() //Come up with a new RNG seed
 globalvar planet, renderer;
-global.planet[0] = spawnPlanet().id
-global.planet[1] = spawnPlanet().id
+global.planet[0] = spawnPlanet()
+
+if(GAME_MODE == 0)
+{
+    global.planet[0].x = 0
+    global.planet[0].y = 0
+    global.planet[0].z = 0
+}
 
 if(SPECTATE_CAMERA)
 {
