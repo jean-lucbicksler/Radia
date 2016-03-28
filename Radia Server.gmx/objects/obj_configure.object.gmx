@@ -46,7 +46,7 @@ sport.name = "Server Port"
 sport.value = global.server_port
 i = i + 1
 mplay = instance_create(64,64+i*32, obj_cfgint)
-mplay.name = "Server Name"
+mplay.name = "Max Players"
 mplay.value = global.max_players
 </string>
           </argument>
@@ -80,6 +80,15 @@ ini_write_string("Server", "server_motd", global.server_motd)
 ini_write_real("Server", "server_port", global.server_port)
 ini_write_real("Server", "max_players", global.max_players)
 ini_close()
+with (obj_cfgstring)
+    {
+     instance_destroy();
+    }
+with (obj_cfgint)
+    {
+     instance_destroy();
+    }
+room_goto_next();
 </string>
           </argument>
         </arguments>
